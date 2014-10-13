@@ -102,6 +102,11 @@ class ClassLoader
                     $files[] = $name;
                 }
             }
+
+            if ($r->isAbstract()) {
+                continue; // skip abstract classes since we can't easily guess the correct order
+            }
+
             $files[] = $r->getFileName();
         }
 
